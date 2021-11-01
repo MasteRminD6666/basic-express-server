@@ -4,7 +4,7 @@ const express = require('express');
 
 const app = express();
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const notFound = require('../handlers/404')
 const logger = require('../middleware/logger')
 const validator = require('../middleware/validator')
@@ -25,14 +25,12 @@ app.use('*', notFound)
 app.use(errorHandler);
 
 function start() {
-    app.set( 'port', ( process.env.PORT || 5000 ));
+  app.set( 'port', ( process.env.PORT || 5000 ));
 
-    // Start node server
-    app.listen( app.get( 'port' ), function() {
-      console.log( 'Node server is running on port ' + app.get( 'port' ));
-
-      });
-      
+  // Start node server
+  app.listen( app.get( 'port' ), function() {
+    console.log( 'Node server is running on port ' + app.get( 'port' ));
+    });
 }
 module.exports = { 
     app, 
