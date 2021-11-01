@@ -8,10 +8,11 @@ function validator(req, res, next) {
    }
     // call next so that tha function in the next line can do its work 
    else{
-       next(res.status(500.).json({
-           error: 500,
-           type: 'Internal Server Error'
-       }));
+    // res.status(500).json({
+    //     error: 500,
+    //     type: 'Internal Server Error'
+    // })
+       next('Internal Server Error');
    }
   
 }
